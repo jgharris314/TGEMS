@@ -14,17 +14,10 @@ public class EmployeeService {
     EmployeeRepository employeeRepository;
 
     public List<Employee> getAllEmployees() {
-        return new ArrayList<>(employeeRepository.findAll());
+        return employeeRepository.findAll();
     }
 
     public Employee createEmployee(Employee employee) {
-        return employeeRepository.save(
-                new Employee(
-                        employee.getAccount(),
-                        employee.getUsername(),
-                        employee.getPassword(),
-                        employee.getEmployeeType()
-                )
-        );
+        return employeeRepository.save(employee);
     }
 }
