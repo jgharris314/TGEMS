@@ -16,7 +16,7 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer employee_id;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "account_id")
     private Account account;
 
@@ -33,7 +33,8 @@ public class Employee {
     private Date end_date;
 
     @Column(name = "employee_type")
-    private Enum<EmployeeType> employee_type;
+    @Enumerated(EnumType.STRING)
+    private EmployeeType employee_type;
 
     public Employee() {
     }
@@ -43,7 +44,7 @@ public class Employee {
             @JsonProperty("account") Account account,
             @JsonProperty("username") String username,
             @JsonProperty("password") String password,
-            @JsonProperty("employee_type") Enum<EmployeeType> employee_type
+            @JsonProperty("employee_type") EmployeeType employee_type
     ) {
         this.account = account;
         this.username = username;
@@ -60,14 +61,18 @@ public class Employee {
         return this.password;
     }
 
+    public Integer getEmployeeId() {
+        return this.employee_id;
+    }
 
     public Account getAccount() {
         return this.account;
     }
 
-    public Enum<EmployeeType> getEmployeeType() {
+    public EmployeeType getEmployeeType() {
         return this.employee_type;
     }
+
 }
 
 

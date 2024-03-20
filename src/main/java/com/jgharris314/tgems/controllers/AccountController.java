@@ -18,19 +18,8 @@ public class AccountController {
 
     @GetMapping("/")
     @ResponseBody
-    public ResponseEntity<List<Account>> getAllAccounts(){
+    public ResponseEntity<List<Account>> getAllAccounts() {
         List<Account> accounts = accountService.getAllAccounts();
         return new ResponseEntity<>(accounts, HttpStatus.OK);
-    }
-
-    @PostMapping("/new")
-    @ResponseBody
-    public ResponseEntity<Account> createAccount(@RequestBody Account account){
-        try {
-            Account createdAccount = accountService.createAccount(account);
-            return new ResponseEntity<>(createdAccount, HttpStatus.CREATED);
-        } catch (Exception e){
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-        }
     }
 }

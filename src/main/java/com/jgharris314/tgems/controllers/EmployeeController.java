@@ -30,19 +30,13 @@ public class EmployeeController {
 
     @PostMapping("/new")
     @ResponseBody
-    public ResponseEntity<Employee> createEmployee(@RequestBody JsonNode objectNode) {
-        JsonNode accountNode = objectNode.get("account");
-        JsonNode employeeNode = objectNode.get("employee");
-
+    public ResponseEntity<Employee> createEmployee(@RequestBody Employee employee) {
         try {
-            Account account = accountService.createAccount(new Account(accountNode.get("first_name").asText(), accountNode.get("last_name").asText()));
-            Employee employee = employeeService.createEmployee(new Employee(account, employeeNode.get("username").asText(), employeeNode.get("password").asText(), EmployeeType.supervisor));
-
-            return new ResponseEntity<>(employee, HttpStatus.CREATED);
+            Employee createdEmployee = employeeService.createEmployee(employee);
+            return new ResponseEntity<>(createdEmployee, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+
         }
-
-
     }
 }
