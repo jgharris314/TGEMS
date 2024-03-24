@@ -7,15 +7,15 @@ import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "pits")
-public class Pit {
+@Table(name = "table_games")
+public class TableGame {
     @Id
-    @Column(name = "pit_id")
+    @Column(name = "table_id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer pit_id;
+    private Integer table_game_id;
 
-    @Column(name = "pit_name")
-    private String pit_name;
+    @Column(name = "table_name")
+    private String table_game_name;
 
     @Column(name = "is_open")
     private Boolean is_open;
@@ -27,23 +27,23 @@ public class Pit {
     @Column(name = "closed_at")
     private Date closed_at;
 
-    public Pit() {
+    public TableGame() {
     }
 
     @JsonCreator
-    public Pit(@JsonProperty("pit_name") String pit_name) {
-        this.pit_name = pit_name;
+    public TableGame(@JsonProperty("table_game_name") String table_game_name) {
+        this.table_game_name = table_game_name;
         this.is_open = false;
         this.employee = null;
         this.closed_at = null;
     }
 
-    public Integer getPitId() {
-        return this.pit_id;
+    public Integer getTableGameId() {
+        return this.table_game_id;
     }
 
-    public String getPitName() {
-        return this.pit_name;
+    public String getTableGameName() {
+        return this.table_game_name;
     }
 
     public Boolean getIsOpen() {

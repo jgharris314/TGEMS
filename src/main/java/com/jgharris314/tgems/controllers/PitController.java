@@ -1,9 +1,7 @@
 package com.jgharris314.tgems.controllers;
 
-import com.jgharris314.tgems.models.Employee;
 import com.jgharris314.tgems.models.Pit;
-import com.jgharris314.tgems.pit.requestBodies.ClosePit;
-import com.jgharris314.tgems.pit.requestBodies.OpenPit;
+import com.jgharris314.tgems.pit.requestBodies.UpdatePitStatus;
 import com.jgharris314.tgems.services.EmployeeService;
 import com.jgharris314.tgems.services.PitService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +28,7 @@ public class PitController {
 
     @PostMapping("/new")
     @ResponseBody
-    public ResponseEntity<Pit> createEmployee(@RequestBody Pit pit) {
+    public ResponseEntity<Pit> createPit(@RequestBody Pit pit) {
         try {
             Pit createdPit = pitService.createPit(pit);
             return new ResponseEntity<>(createdPit, HttpStatus.CREATED);
@@ -41,9 +39,9 @@ public class PitController {
 
     @PostMapping("/open")
     @ResponseBody
-    public ResponseEntity<Pit> openPit(@RequestBody OpenPit openPit) {
+    public ResponseEntity<Pit> openPit(@RequestBody UpdatePitStatus updatePitStatus) {
         try {
-            Pit pitToOpen = pitService.openPit(openPit);
+            Pit pitToOpen = pitService.updatePitStatus(updatePitStatus, true);
             return new ResponseEntity<>(pitToOpen, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
@@ -52,9 +50,9 @@ public class PitController {
 
     @PostMapping("/close")
     @ResponseBody
-    public ResponseEntity<Pit> closePit(@RequestBody ClosePit closePit) {
+    public ResponseEntity<Pit> closePit(@RequestBody UpdatePitStatus updatePitStatus) {
         try {
-            Pit pitToClose = pitService.closePit(closePit);
+            Pit pitToClose = pitService.updatePitStatus(updatePitStatus, false);
             return new ResponseEntity<>(pitToClose, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);

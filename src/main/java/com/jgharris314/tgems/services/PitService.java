@@ -2,8 +2,7 @@ package com.jgharris314.tgems.services;
 
 import com.jgharris314.tgems.models.Employee;
 import com.jgharris314.tgems.models.Pit;
-import com.jgharris314.tgems.pit.requestBodies.ClosePit;
-import com.jgharris314.tgems.pit.requestBodies.OpenPit;
+import com.jgharris314.tgems.pit.requestBodies.UpdatePitStatus;
 import com.jgharris314.tgems.repositories.PitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,21 +31,13 @@ public class PitService {
         return optionalPit.orElse(null);
     }
 
-    public Pit openPit(OpenPit openPit) {
-        Pit pitToOpen = this.getPit(openPit.getPitId());
-        Employee employeeThatOpened = employeeService.getEmployeeById(openPit.getEmployeeId());
-        pitToOpen.setIsOpen(true);
-        pitToOpen.setEmployee(employeeThatOpened);
-        pitRepository.save(pitToOpen);
-        return pitToOpen;
+    public Pit updatePitStatus(UpdatePitStatus updatePitStatus, Boolean isOpen) {
+        Pit pitToUpdate = this.getPit(updatePitStatus.getPitId());
+        Employee employee = employeeService.getEmployeeById(updatePitStatus.getEmployeeId());
+        pitToUpdate.setIsOpen(isOpen);
+        pitToUpdate.setEmployee(employee);
+        pitRepository.save(pitToUpdate);
+        return pitToUpdate;
     }
 
-    public Pit closePit(ClosePit closePit) {
-        Pit pitToClose = this.getPit(closePit.getPitId());
-        Employee employeeThatClosed = employeeService.getEmployeeById(closePit.getEmployeeId());
-        pitToClose.setIsOpen(false);
-        pitToClose.setEmployee(employeeThatClosed);
-        pitRepository.save(pitToClose);
-        return pitToClose;
-    }
 }
