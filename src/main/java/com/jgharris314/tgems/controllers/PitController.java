@@ -42,6 +42,9 @@ public class PitController {
     public ResponseEntity<Pit> openPit(@RequestBody UpdatePitStatus updatePitStatus) {
         try {
             Pit pitToOpen = pitService.updatePitStatus(updatePitStatus, true);
+            if (pitToOpen == null) {
+                throw new Exception("Pit is already opened");
+            }
             return new ResponseEntity<>(pitToOpen, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
@@ -53,6 +56,9 @@ public class PitController {
     public ResponseEntity<Pit> closePit(@RequestBody UpdatePitStatus updatePitStatus) {
         try {
             Pit pitToClose = pitService.updatePitStatus(updatePitStatus, false);
+            if (pitToClose == null) {
+                throw new Exception("Pit is already closed");
+            }
             return new ResponseEntity<>(pitToClose, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);

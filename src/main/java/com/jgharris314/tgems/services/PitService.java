@@ -2,6 +2,7 @@ package com.jgharris314.tgems.services;
 
 import com.jgharris314.tgems.models.Employee;
 import com.jgharris314.tgems.models.Pit;
+import com.jgharris314.tgems.models.PitLog;
 import com.jgharris314.tgems.pit.requestBodies.UpdatePitStatus;
 import com.jgharris314.tgems.repositories.PitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,9 @@ public class PitService {
     @Autowired
     EmployeeService employeeService;
 
+    @Autowired
+    PitLogService pitLogService;
+
     public List<Pit> getAllPits() {
         return pitRepository.findAll();
     }
@@ -32,12 +36,22 @@ public class PitService {
     }
 
     public Pit updatePitStatus(UpdatePitStatus updatePitStatus, Boolean isOpen) {
-        Pit pitToUpdate = this.getPit(updatePitStatus.getPitId());
-        Employee employee = employeeService.getEmployeeById(updatePitStatus.getEmployeeId());
+        Integer employeeId = updatePitStatus.getEmployeeId();
+        Integer pitId = updatePitStatus.getPitId();
+        Pit pitToUpdate = this.getPit(pitId);
+
+        if (pitToUpdate.getIsOpen() == isOpen) {
+            return null;
+        }
+        Employee employee = employeeService.getEmployeeById(employeeId);
         pitToUpdate.setIsOpen(isOpen);
         pitToUpdate.setEmployee(employee);
-        pitRepository.save(pitToUpdate);
-        return pitToUpdate;
+        Pit updatedPit = pitRepository.save(pitToUpdate);
+
+        PitLog pitLog = new PitLog(employeeId, pitId, isOpen);
+
+        pitLogService.createPitLog(pitLog);
+        return updatedPit;
     }
 
 }
