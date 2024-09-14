@@ -17,16 +17,12 @@ public class PitLog {
     @Column(name = "pit_id")
     private Integer pit_id;
 
-    @Column(name = "is_open")
-    private Boolean is_open;
-
     public PitLog() {
     }
 
     public PitLog(Integer employeeId, Integer pitId, Boolean isOpen) {
         this.employee_id = employeeId;
         this.pit_id = pitId;
-        this.is_open = isOpen;
     }
 
     public Integer getEmployeeId() {
@@ -37,7 +33,4 @@ public class PitLog {
         return this.pit_id;
     }
 
-    public Boolean getIsOpen() {
-        return this.is_open;
-    }
 }

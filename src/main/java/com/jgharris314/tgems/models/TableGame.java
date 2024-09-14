@@ -14,7 +14,7 @@ public class TableGame {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer table_game_id;
 
-    @Column(name = "table_name")
+    @Column(name = "table_game_name")
     private String table_game_name;
 
     @Column(name = "is_open")
@@ -24,6 +24,8 @@ public class TableGame {
     @JoinColumn(name = "employee_id")
     private Employee employee;
 
+    @Column(name = "opened_at")
+    private Date opened_at;
     @Column(name = "closed_at")
     private Date closed_at;
 
@@ -35,6 +37,7 @@ public class TableGame {
         this.table_game_name = table_game_name;
         this.is_open = false;
         this.employee = null;
+        this.opened_at = null;
         this.closed_at = null;
     }
 
@@ -52,6 +55,10 @@ public class TableGame {
 
     public Employee getEmployee() {
         return this.employee;
+    }
+
+    public Date getOpenedAt() {
+        return this.opened_at;
     }
 
     public Date getClosedAt() {

@@ -24,6 +24,9 @@ public class Pit {
     @JoinColumn(name = "employee_id")
     private Employee employee;
 
+    @Column(name = "opened_at")
+    private Date opened_at;
+
     @Column(name = "closed_at")
     private Date closed_at;
 
@@ -52,6 +55,10 @@ public class Pit {
 
     public Employee getEmployee() {
         return this.employee;
+    }
+
+    public Date getOpenedAt() {
+        return this.opened_at;
     }
 
     public Date getClosedAt() {
