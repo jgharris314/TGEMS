@@ -14,7 +14,7 @@ public class Employee {
     @Id
     @Column(name = "employee_id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer employee_id;
+    private Integer employeeId;
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "account_id")
@@ -27,14 +27,14 @@ public class Employee {
     private String password;
 
     @Column(name = "start_date")
-    private Date start_date;
+    private Date startDate;
 
     @Column(name = "end_date")
-    private Date end_date;
+    private Date endDate;
 
     @Column(name = "employee_type")
     @Enumerated(EnumType.STRING)
-    private EmployeeType employee_type;
+    private EmployeeType employeeType;
 
     public Employee() {
     }
@@ -44,12 +44,12 @@ public class Employee {
             @JsonProperty("account") Account account,
             @JsonProperty("username") String username,
             @JsonProperty("password") String password,
-            @JsonProperty("employee_type") EmployeeType employee_type
+            @JsonProperty("employee_type") EmployeeType employeeType
     ) {
         this.account = account;
         this.username = username;
         this.password = password;
-        this.employee_type = employee_type;
+        this.employeeType = employeeType;
 
     }
 
@@ -62,7 +62,7 @@ public class Employee {
     }
 
     public Integer getEmployeeId() {
-        return this.employee_id;
+        return this.employeeId;
     }
 
     public Account getAccount() {
@@ -70,7 +70,7 @@ public class Employee {
     }
 
     public EmployeeType getEmployeeType() {
-        return this.employee_type;
+        return this.employeeType;
     }
 
 }
