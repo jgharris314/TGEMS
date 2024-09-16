@@ -10,47 +10,53 @@ import java.util.Date;
 @Table(name = "table_games")
 public class TableGame {
     @Id
-    @Column(name = "table_id")
+    @Column(name = "table_game_id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer table_game_id;
+    private Integer tableGameId;
 
     @Column(name = "table_game_name")
-    private String table_game_name;
+    private String tableGameName;
 
     @Column(name = "is_open")
-    private Boolean is_open;
+    private Boolean isOpen;
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "employee_id")
     private Employee employee;
 
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "table_game_inventory_id")
+    private TableGameInventory tableGameInventory;
+
     @Column(name = "opened_at")
-    private Date opened_at;
+    private Date openedAt;
     @Column(name = "closed_at")
-    private Date closed_at;
+    private Date closedAt;
 
     public TableGame() {
+
     }
 
     @JsonCreator
-    public TableGame(@JsonProperty("table_game_name") String table_game_name) {
-        this.table_game_name = table_game_name;
-        this.is_open = false;
+    public TableGame(@JsonProperty("tableGameName") String tableGameName, @JsonProperty("tableGameInventory") TableGameInventory tableGameInventory) {
+        this.tableGameName = tableGameName;
+        this.tableGameInventory = tableGameInventory;
+        this.isOpen = false;
         this.employee = null;
-        this.opened_at = null;
-        this.closed_at = null;
+        this.openedAt = null;
+        this.closedAt = null;
     }
 
     public Integer getTableGameId() {
-        return this.table_game_id;
+        return this.tableGameId;
     }
 
     public String getTableGameName() {
-        return this.table_game_name;
+        return this.tableGameName;
     }
 
     public Boolean getIsOpen() {
-        return this.is_open;
+        return this.isOpen;
     }
 
     public Employee getEmployee() {
@@ -58,15 +64,19 @@ public class TableGame {
     }
 
     public Date getOpenedAt() {
-        return this.opened_at;
+        return this.openedAt;
     }
 
     public Date getClosedAt() {
-        return this.closed_at;
+        return this.closedAt;
     }
 
-    public void setIsOpen(Boolean is_open) {
-        this.is_open = is_open;
+    public TableGameInventory getTableGameInventory() {
+        return this.tableGameInventory;
+    }
+
+    public void setIsOpen(Boolean isOpen) {
+        this.isOpen = isOpen;
     }
 
     public void setEmployee(Employee employee) {
