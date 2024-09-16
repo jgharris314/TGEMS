@@ -17,63 +17,65 @@ public class TableGameInventory {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer tableGameInventoryId;
 
-    @Column(name = "num_cheques_value_half")
-    private Integer numChequesValueHalf;
+    @Column(name = "point_five_dollar_cheque_count")
+    private Integer pointFiveDollarChequeCount;
 
-    @Column(name = "num_cheques_value_two_and_a_half")
-    private Integer numChequesValueTwoAndAHalf;
+    @Column(name = "one_dollar_cheque_count")
+    private Integer oneDollarChequeCount;
 
-    @Column(name = "num_cheques_value_one")
-    private Integer numChequesValueOne;
+    @Column(name = "two_point_five_dollar_cheque_count")
+    private Integer twoPointFiveDollarChequeCount;
 
-    @Column(name = "num_cheques_value_five")
-    private Integer numChequesValueFive;
 
-    @Column(name = "num_cheques_value_twenty_five")
-    private Integer numChequesValueTwentyFive;
+    @Column(name = "five_dollar_cheque_count")
+    private Integer fiveDollarChequeCount;
 
-    @Column(name = "num_cheques_value_hundred")
-    private Integer numChequesValueHundred;
+    @Column(name = "twenty_five_dollar_cheque_count")
+    private Integer twentyFiveDollarChequeCount;
 
-    @Column(name = "num_cheques_value_five_hundred")
-    private Integer numChequesValueFiveHundred;
+    @Column(name = "hundred_dollar_cheque_count")
+    private Integer hundredDollarChequeCount;
 
-    @Column(name = "num_cheques_value_thousand")
-    private Integer numChequesValueThousand;
+    @Column(name = "fiveHundred_dollar_cheque_count")
+    private Integer fiveHundredDollarChequeCount;
+
+    @Column(name = "thousand_dollar_cheque_count")
+    private Integer thousandDollarChequeCount;
+
 
     public TableGameInventory() {
     }
 
     @JsonCreator
-    public TableGameInventory(@JsonProperty("numChequesValueHalf") Integer half,
-                              @JsonProperty("numChequesValueOne") Integer one,
-                              @JsonProperty("numChequesValueTwoAndAHalf") Integer twoAndAHalf,
-                              @JsonProperty("numChequesValueFive") Integer five,
-                              @JsonProperty("numChequesValueTwentyFive") Integer twentyFive,
-                              @JsonProperty("numChequesValueHundred") Integer hundred,
-                              @JsonProperty("numChequesValueFiveHundred") Integer fiveHundred,
-                              @JsonProperty("numChequesValueThousand") Integer thousand) {
-        this.numChequesValueHalf = half;
-        this.numChequesValueOne = one;
-        this.numChequesValueTwoAndAHalf = twoAndAHalf;
-        this.numChequesValueFive = five;
-        this.numChequesValueTwentyFive = twentyFive;
-        this.numChequesValueHundred = hundred;
-        this.numChequesValueFiveHundred = fiveHundred;
-        this.numChequesValueThousand = thousand;
+    public TableGameInventory(@JsonProperty("pointFiveDollarChequeCount") Integer pointFiveDollarChequeCount,
+                              @JsonProperty("oneDollarChequeCount") Integer oneDollarChequeCount,
+                              @JsonProperty("twoPointFiveDollarChequeCount") Integer twoPointFiveDollarChequeCount,
+                              @JsonProperty("fiveDollarChequeCount") Integer fiveDollarChequeCount,
+                              @JsonProperty("twentyFiveDollarChequeCount") Integer twentyFiveDollarChequeCount,
+                              @JsonProperty("hundredDollarChequeCount") Integer hundredDollarChequeCount,
+                              @JsonProperty("fiveHundredDollarChequeCount") Integer fiveHundredDollarChequeCount,
+                              @JsonProperty("thousandDollarChequeCount") Integer thousandDollarChequeCount) {
+        this.pointFiveDollarChequeCount = pointFiveDollarChequeCount;
+        this.oneDollarChequeCount = oneDollarChequeCount;
+        this.twoPointFiveDollarChequeCount = twoPointFiveDollarChequeCount;
+        this.fiveDollarChequeCount = fiveDollarChequeCount;
+        this.twentyFiveDollarChequeCount = twentyFiveDollarChequeCount;
+        this.hundredDollarChequeCount = hundredDollarChequeCount;
+        this.fiveHundredDollarChequeCount = fiveHundredDollarChequeCount;
+        this.thousandDollarChequeCount = thousandDollarChequeCount;
     }
 
     public Map<String, Number> getInventoryChequeCounts() {
         Map<String, Number> chequeCounts = new HashMap<>();
 
-        chequeCounts.put("numChequesValueHalf", this.numChequesValueHalf);
-        chequeCounts.put("numChequesValueOne", this.numChequesValueOne);
-        chequeCounts.put("numChequesValueTwoAndAHalf", this.numChequesValueTwoAndAHalf);
-        chequeCounts.put("numChequesValueFive", this.numChequesValueFive);
-        chequeCounts.put("numChequesValueTwentyFive", this.numChequesValueTwentyFive);
-        chequeCounts.put("numChequesValueHundred", this.numChequesValueHundred);
-        chequeCounts.put("numChequesValueFiveHundred", this.numChequesValueFiveHundred);
-        chequeCounts.put("numChequesValueThousand", this.numChequesValueThousand);
+        chequeCounts.put("pointFiveDollarChequeCount", this.pointFiveDollarChequeCount);
+        chequeCounts.put("oneDollarChequeCount", this.oneDollarChequeCount);
+        chequeCounts.put("twoPointFiveDollarChequeCount", this.twoPointFiveDollarChequeCount);
+        chequeCounts.put("fiveDollarChequeCount", this.fiveDollarChequeCount);
+        chequeCounts.put("twentyFiveDollarChequeCount", this.twentyFiveDollarChequeCount);
+        chequeCounts.put("hundredDollarChequeCount", this.hundredDollarChequeCount);
+        chequeCounts.put("fiveHundredDollarChequeCount", this.fiveHundredDollarChequeCount);
+        chequeCounts.put("thousandDollarChequeCount", this.thousandDollarChequeCount);
 
         return chequeCounts;
     }
