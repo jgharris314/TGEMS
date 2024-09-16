@@ -12,45 +12,46 @@ public class Pit {
     @Id
     @Column(name = "pit_id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer pit_id;
+    private Integer pitId;
 
     @Column(name = "pit_name")
-    private String pit_name;
+    private String pitName;
 
     @Column(name = "is_open")
-    private Boolean is_open;
+    private Boolean isOpen;
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "employee_id")
     private Employee employee;
 
     @Column(name = "opened_at")
-    private Date opened_at;
+    private Date openedAt;
 
     @Column(name = "closed_at")
-    private Date closed_at;
+    private Date closedAt;
 
     public Pit() {
     }
 
     @JsonCreator
-    public Pit(@JsonProperty("pit_name") String pit_name) {
-        this.pit_name = pit_name;
-        this.is_open = false;
+    public Pit(@JsonProperty("pitName") String pitName) {
+        this.pitName = pitName;
+        this.isOpen = false;
         this.employee = null;
-        this.closed_at = null;
+        this.closedAt = null;
+        this.openedAt = null;
     }
 
     public Integer getPitId() {
-        return this.pit_id;
+        return this.pitId;
     }
 
     public String getPitName() {
-        return this.pit_name;
+        return this.pitName;
     }
 
     public Boolean getIsOpen() {
-        return this.is_open;
+        return this.isOpen;
     }
 
     public Employee getEmployee() {
@@ -58,15 +59,15 @@ public class Pit {
     }
 
     public Date getOpenedAt() {
-        return this.opened_at;
+        return this.openedAt;
     }
 
     public Date getClosedAt() {
-        return this.closed_at;
+        return this.closedAt;
     }
 
-    public void setIsOpen(Boolean is_open) {
-        this.is_open = is_open;
+    public void setIsOpen(Boolean isOpen) {
+        this.isOpen = isOpen;
     }
 
     public void setEmployee(Employee employee) {

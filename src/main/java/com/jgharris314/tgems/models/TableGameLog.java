@@ -24,13 +24,4 @@ public class TableGameLog {
         this.employeeId = employeeId;
         this.tableGameId = tableGameId;
     }
-
-//    public Integer getEmployeeId() {
-//        return this.employeeId;
-//    }
-//
-//    public Integer getPitId() {
-//        return this.tableGameId;
-//    }
-
 }

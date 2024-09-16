@@ -12,7 +12,7 @@ public class Player {
     @Id
     @Column(name = "player_id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer player_id;
+    private Integer playerId;
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "account_id")
@@ -20,16 +20,16 @@ public class Player {
 
     @Column(name = "reward_tier")
     @Enumerated(EnumType.STRING)
-    private RewardTier reward_tier;
+    private RewardTier rewardTier;
 
     @Column(name = "reward_tier_points")
-    private Integer reward_tier_points;
+    private Integer rewardTierPoints;
 
     @Column(name = "lifetime_buy_in")
-    private Integer lifetime_buy_in;
+    private Integer lifetimeBuyIn;
 
     @Column(name = "lifetime_cash_out")
-    private Integer lifetime_cash_out;
+    private Integer lifetimeCashOut;
 
     public Player() {
     }
@@ -37,21 +37,21 @@ public class Player {
     @JsonCreator
     public Player(
             @JsonProperty("account") Account account,
-            @JsonProperty("reward_tier") RewardTier reward_tier,
-            @JsonProperty("reward_tier_points") Integer reward_tier_points,
-            @JsonProperty("lifetime_buy_in") Integer lifetime_buy_in,
-            @JsonProperty("lifetime_cash_out") Integer lifetime_cash_out
+            @JsonProperty("rewardTier") RewardTier rewardTier,
+            @JsonProperty("rewardTierPoints") Integer rewardTierPoints,
+            @JsonProperty("lifetimeBuyIn") Integer lifetimeBuyIn,
+            @JsonProperty("lifetimeCashOut") Integer lifetimeCashOut
     ) {
         this.account = account;
-        this.reward_tier = reward_tier;
-        this.reward_tier_points = reward_tier_points;
-        this.lifetime_buy_in = lifetime_buy_in;
-        this.lifetime_cash_out = lifetime_cash_out;
+        this.rewardTier = rewardTier;
+        this.rewardTierPoints = rewardTierPoints;
+        this.lifetimeBuyIn = lifetimeBuyIn;
+        this.lifetimeCashOut = lifetimeCashOut;
 
     }
 
     public Integer getPlayerId() {
-        return this.player_id;
+        return this.playerId;
     }
 
     public Account getAccount() {
@@ -59,19 +59,19 @@ public class Player {
     }
 
     public Integer getLifetimeBuyIn() {
-        return this.lifetime_buy_in;
+        return this.lifetimeBuyIn;
     }
 
     public Integer getLifetimeCashOut() {
-        return this.lifetime_cash_out;
+        return this.lifetimeCashOut;
     }
 
     public RewardTier getRewardTier() {
-        return this.reward_tier;
+        return this.rewardTier;
     }
 
     public Integer getRewardTierPoints() {
-        return this.reward_tier_points;
+        return this.rewardTierPoints;
     }
 }
 

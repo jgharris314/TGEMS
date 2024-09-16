@@ -12,40 +12,41 @@ public class Account {
     @Id
     @Column(name = "account_id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer account_id;
+    private Integer accountId;
 
     @Column(name = "first_name", nullable = false)
-    private String first_name;
+    private String firstName;
 
     @Column(name = "last_name", nullable = false)
-    private String last_name;
+    private String lastName;
 
     @Column(name = "date_of_birth")
-    private Date date_of_birth;
+    private Date dateOfBirth;
 
     public Account() {
     }
 
     @JsonCreator
-    public Account(@JsonProperty("first_name") String first_name, @JsonProperty("last_name") String last_name) {
-        this.first_name = first_name;
-        this.last_name = last_name;
+    public Account(@JsonProperty("firstName") String firstName,
+                   @JsonProperty("lastName") String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     public Integer getAccountId() {
-        return this.account_id;
+        return this.accountId;
     }
 
     public String getFirstName() {
-        return this.first_name;
+        return this.firstName;
     }
 
     public String getLastName() {
-        return this.last_name;
+        return this.lastName;
     }
 
     public Date getDateOfBirth() {
-        return this.date_of_birth;
+        return this.dateOfBirth;
     }
 }
 

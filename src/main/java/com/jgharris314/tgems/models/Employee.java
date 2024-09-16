@@ -44,7 +44,7 @@ public class Employee {
             @JsonProperty("account") Account account,
             @JsonProperty("username") String username,
             @JsonProperty("password") String password,
-            @JsonProperty("employee_type") EmployeeType employeeType
+            @JsonProperty("employeeType") EmployeeType employeeType
     ) {
         this.account = account;
         this.username = username;
