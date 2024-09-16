@@ -1,6 +1,5 @@
 package com.jgharris314.tgems.models;
 
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
@@ -24,6 +23,9 @@ public class Pit {
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "employee_id")
     private Employee employee;
+
+    @Column(name = "opened_at")
+    private Date opened_at;
 
     @Column(name = "closed_at")
     private Date closed_at;
@@ -55,13 +57,12 @@ public class Pit {
         return this.employee;
     }
 
+    public Date getOpenedAt() {
+        return this.opened_at;
+    }
 
     public Date getClosedAt() {
         return this.closed_at;
-    }
-
-    public void setPitName(String pit_name) {
-        this.pit_name = pit_name;
     }
 
     public void setIsOpen(Boolean is_open) {

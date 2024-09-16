@@ -18,8 +18,8 @@ public class EmployeeService {
         return employeeRepository.findAll();
     }
 
-    public Employee getEmployeeById(Integer employee_id) {
-        return employeeRepository.findById(employee_id).orElse(null);
+    public Employee getEmployeeById(Integer employeeId) {
+        return employeeRepository.findById(employeeId).orElse(null);
     }
 
     public Employee createEmployee(Employee employee) {
