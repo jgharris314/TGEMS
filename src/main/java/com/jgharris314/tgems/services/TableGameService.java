@@ -1,15 +1,11 @@
 package com.jgharris314.tgems.services;
 
 import com.jgharris314.tgems.models.Employee;
-import com.jgharris314.tgems.models.Pit;
-import com.jgharris314.tgems.models.PitLog;
 import com.jgharris314.tgems.models.TableGame;
-import com.jgharris314.tgems.pit.requestBodies.UpdatePitStatus;
 import com.jgharris314.tgems.repositories.TableGameRepository;
-import com.jgharris314.tgems.tableGame.requestBodies.UpdateTableGameStatus;
+import com.jgharris314.tgems.requestBodies.UpdateTableGameStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.jgharris314.tgems.services.EmployeeService;
 
 import java.util.List;
 

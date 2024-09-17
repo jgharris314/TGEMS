@@ -3,7 +3,7 @@ package com.jgharris314.tgems.services;
 import com.jgharris314.tgems.models.Employee;
 import com.jgharris314.tgems.models.Pit;
 import com.jgharris314.tgems.models.PitLog;
-import com.jgharris314.tgems.pit.requestBodies.UpdatePitStatus;
+import com.jgharris314.tgems.requestBodies.UpdatePitStatus;
 import com.jgharris314.tgems.repositories.PitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

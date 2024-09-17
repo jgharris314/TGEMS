@@ -41,8 +41,7 @@ public class TableGameInventory {
 
     @Column(name = "thousand_dollar_cheque_count")
     private Integer thousandDollarChequeCount;
-
-
+    
     public TableGameInventory() {
     }
 

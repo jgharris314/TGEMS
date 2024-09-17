@@ -1,7 +1,7 @@
 package com.jgharris314.tgems.controllers;
 
 import com.jgharris314.tgems.models.Pit;
-import com.jgharris314.tgems.pit.requestBodies.UpdatePitStatus;
+import com.jgharris314.tgems.requestBodies.UpdatePitStatus;
 import com.jgharris314.tgems.services.EmployeeService;
 import com.jgharris314.tgems.services.PitService;
 import org.springframework.beans.factory.annotation.Autowired;

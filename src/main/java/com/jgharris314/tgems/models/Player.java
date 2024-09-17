@@ -2,7 +2,7 @@ package com.jgharris314.tgems.models;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.jgharris314.tgems.player.enums.RewardTier;
+import com.jgharris314.tgems.enums.RewardTier;
 import jakarta.persistence.*;
 
 @Entity

@@ -2,7 +2,7 @@ package com.jgharris314.tgems.models;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.jgharris314.tgems.employee.enums.EmployeeType;
+import com.jgharris314.tgems.enums.EmployeeType;
 import jakarta.persistence.*;
 
 import java.util.Date;

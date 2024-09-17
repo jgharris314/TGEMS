@@ -1,4 +1,4 @@
-package com.jgharris314.tgems.employee.enums;
+package com.jgharris314.tgems.enums;
 
 public enum EmployeeType {
     dealer, supervisor, pit, manager
