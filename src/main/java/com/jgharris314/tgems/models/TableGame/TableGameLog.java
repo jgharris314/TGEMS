@@ -1,4 +1,4 @@
-package com.jgharris314.tgems.models;
+package com.jgharris314.tgems.models.TableGame;
 
 import jakarta.persistence.*;
 

@@ -1,6 +1,6 @@
 package com.jgharris314.tgems.controllers;
 
-import com.jgharris314.tgems.models.TableGame;
+import com.jgharris314.tgems.models.TableGame.TableGame;
 import com.jgharris314.tgems.services.TableGameService;
 import com.jgharris314.tgems.requestBodies.UpdateTableGameStatus;
 import org.springframework.beans.factory.annotation.Autowired;

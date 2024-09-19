@@ -1,7 +1,9 @@
 package com.jgharris314.tgems.services;
 
+import com.jgharris314.tgems.enums.TableGameInventoryLogType;
 import com.jgharris314.tgems.models.Employee;
-import com.jgharris314.tgems.models.TableGame;
+import com.jgharris314.tgems.models.TableGame.TableGame;
+import com.jgharris314.tgems.models.TableGame.TableGameInventoryLog;
 import com.jgharris314.tgems.repositories.TableGameRepository;
 import com.jgharris314.tgems.requestBodies.UpdateTableGameStatus;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,9 @@ public class TableGameService {
 
     @Autowired
     EmployeeService employeeService;
+
+    @Autowired
+    TableGameInventoryLogService tableGameInventoryLogService;
 
     public List<TableGame> getAllTableGames() {
         return tableGameRepository.findAll();
@@ -42,9 +47,13 @@ public class TableGameService {
         tableGameToUpdate.setEmployee(employee);
         TableGame updatedTableGame = tableGameRepository.save(tableGameToUpdate);
 
-//        PitLog pitLog = new PitLog(employeeId, tableGameId, isOpen);
-//
-//        pitLogService.createPitLog(pitLog);
+        TableGameInventoryLog tableGameInventoryLog = new TableGameInventoryLog(
+                employee,
+                updatedTableGame.getTableGameInventory().getTableGameInventoryId(),
+                0,
+                isOpen ? TableGameInventoryLogType.opener : TableGameInventoryLogType.closer);
+
+        tableGameInventoryLogService.createTableGameInventoryLog(tableGameInventoryLog);
         return updatedTableGame;
     }
 }

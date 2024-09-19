@@ -1,6 +1,6 @@
 package com.jgharris314.tgems.repositories;
 
-import com.jgharris314.tgems.models.TableGameInventoryLog;
+import com.jgharris314.tgems.models.TableGame.TableGameInventoryLog;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -8,6 +8,6 @@ import java.util.List;
 
 @Repository
 public interface TableGameInventoryLogRepository extends JpaRepository<TableGameInventoryLog, Integer> {
-    List<TableGameInventoryLog> findAllByTableGameInventoryId(Integer tableGameInventoryId);
+    List<TableGameInventoryLog> findAllByTableGameInventoryLogId(Integer tableGameInventoryId);
 }
 

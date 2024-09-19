@@ -1,6 +1,6 @@
 package com.jgharris314.tgems.services;
 
-import com.jgharris314.tgems.models.TableGameInventoryLog;
+import com.jgharris314.tgems.models.TableGame.TableGameInventoryLog;
 import com.jgharris314.tgems.repositories.TableGameInventoryLogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +25,6 @@ public class TableGameInventoryLogService {
     }
 
     public List<TableGameInventoryLog> getAllTableGameInventoryLogsByTableId(Integer tableGameInventoryLogId) {
-        return tableGameInventoryLogRepository.findAllByTableGameInventoryId(tableGameInventoryLogId);
+        return tableGameInventoryLogRepository.findAllByTableGameInventoryLogId(tableGameInventoryLogId);
     }
 }

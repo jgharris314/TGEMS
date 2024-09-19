@@ -1,7 +1,8 @@
-package com.jgharris314.tgems.models;
+package com.jgharris314.tgems.models.TableGame;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.jgharris314.tgems.models.Employee;
 import jakarta.persistence.*;
 
 import java.util.Date;

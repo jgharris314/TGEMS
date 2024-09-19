@@ -1,6 +1,6 @@
 package com.jgharris314.tgems.services;
 
-import com.jgharris314.tgems.models.TableGameLog;
+import com.jgharris314.tgems.models.TableGame.TableGameLog;
 import com.jgharris314.tgems.repositories.TableGameLogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
