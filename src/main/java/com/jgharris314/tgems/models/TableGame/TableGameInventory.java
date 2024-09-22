@@ -4,11 +4,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
-import java.util.HashMap;
-import java.util.Map;
-
-
-//Create a file with constants for value of a barrel (stack of 20 cheques)
 @Entity
 @Table(name = "table_game_inventories")
 public class TableGameInventory extends TableGameInventoryBase {

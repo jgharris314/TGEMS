@@ -1,4 +1,4 @@
-package com.jgharris314.tgems.repositories;
+package com.jgharris314.tgems.repositories.TableGame;
 
 import com.jgharris314.tgems.models.TableGame.TableGame;
 import org.springframework.data.jpa.repository.JpaRepository;

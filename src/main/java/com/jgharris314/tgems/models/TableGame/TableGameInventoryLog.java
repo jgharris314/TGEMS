@@ -16,6 +16,14 @@ public class TableGameInventoryLog {
     @JoinColumn(name = "employee_id")
     Employee employee;
 
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "previous_table_game_inventory_record_id")
+    PreviousTableGameInventoryRecord previousTableGameInventoryRecord;
+
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "updated_table_game_inventory_record_id")
+    UpdatedTableGameInventoryRecord updatedTableGameInventoryRecord;
+
     @Column(name = "table_game_inventory_id")
     Integer tableGameInventoryId;
 
@@ -31,11 +39,16 @@ public class TableGameInventoryLog {
     public TableGameInventoryLog(Employee employee,
                                  Integer tableGameInventoryId,
                                  Integer totalAdjustmentAmount,
-                                 TableGameInventoryLogType logType) {
+                                 TableGameInventoryLogType logType,
+                                 PreviousTableGameInventoryRecord previousTableGameInventoryRecord,
+                                 UpdatedTableGameInventoryRecord updatedTableGameInventoryRecord
+    ) {
         this.employee = employee;
         this.tableGameInventoryId = tableGameInventoryId;
         this.totalAdjustmentAmount = totalAdjustmentAmount;
         this.logType = logType;
+        this.previousTableGameInventoryRecord = previousTableGameInventoryRecord;
+        this.updatedTableGameInventoryRecord = updatedTableGameInventoryRecord;
 
     }
 }
